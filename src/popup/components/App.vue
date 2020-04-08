@@ -117,7 +117,7 @@ export default {
         this.trackEvent('Stop')
         console.debug('stop recorder')
         this.bus.postMessage({ action: actions.STOP })
-        
+
         this.$chrome.storage.local.get(['recording', 'options'], ({ recording, options }) => {
           console.debug('loaded recording', recording)
           console.debug('loaded options', options)
@@ -127,13 +127,12 @@ export default {
 
           const codeGen = new CodeGenerator(codeOptions)
           this.code = codeGen.generate(this.recording)
-          this.showResultsTab = true
-          // console.log('stop pre-fetch')
-          // fetch('http://localhost:3999/code', {
-          //   method: 'POST',
-          //   'content-type': 'application/json',
-          //   body: JSON.stringify(this.code)
-          // })
+          this.showResultsTab = false
+          fetch('http://localhost:8000/code', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ code: this.code })
+          })
           this.storeState()
         })
       },
