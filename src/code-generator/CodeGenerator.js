@@ -2,19 +2,29 @@ import domEvents from './dom-events-to-record'
 import pptrActions from './pptr-actions'
 import Block from './Block'
 
-const importPuppeteer = `const puppeteer = require('puppeteer');\n`
+// const importPuppeteer = `const puppeteer = require('puppeteer');\n`
 
-const header = `const browser = await puppeteer.launch()
-const page = await browser.newPage()`
+// const header = `const browser = await puppeteer.launch()
+// const page = await browser.newPage()`
 
-const footer = `await browser.close()`
+// const footer = `await browser.close()`
 
-const wrappedHeader = `(async () => {
-  const browser = await puppeteer.launch()
-  const page = await browser.newPage()\n`
+// const wrappedHeader = `(async () => {
+//   const browser = await puppeteer.launch()
+//   const page = await browser.newPage()\n`
 
-const wrappedFooter = `  await browser.close()
-})()`
+// const wrappedFooter = `  await browser.close()
+// })()`
+
+const importPuppeteer = ''
+
+const header = ''
+
+const footer = ''
+
+const wrappedHeader = ''
+
+const wrappedFooter = ''
 
 export const defaults = {
   wrapAsync: true,

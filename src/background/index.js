@@ -4,7 +4,10 @@ import actions from '../models/extension-ui-actions'
 
 class RecordingController {
   constructor () {
+    this.recordState = false
     this._recording = []
+    this._boundedStartHandler = null
+    this._boundedStopHandler = null
     this._boundedMessageHandler = null
     this._boundedNavigationHandler = null
     this._boundedWaitHandler = null
@@ -27,7 +30,7 @@ class RecordingController {
 
   boot () {
     chrome.extension.onConnect.addListener(port => {
-      console.debug('listeners connected')
+      console.log('listeners connected')
       port.onMessage.addListener(msg => {
         if (msg.action && msg.action === actions.START) this.start()
         if (msg.action && msg.action === actions.STOP) this.stop()
@@ -36,6 +39,15 @@ class RecordingController {
         if (msg.action && msg.action === actions.UN_PAUSE) this.unPause()
       })
     })
+
+    // chrome.browserAction.onClicked.addListener(function (tab) {
+    //   chrome.runtime.sendMessage()
+    //   chrome.tabs.executeScript({
+    //     code: `
+    //       console.log('HERE IS MY CODE')
+    //     `
+    //   })
+    // })
   }
 
   start () {

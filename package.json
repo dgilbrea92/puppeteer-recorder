@@ -1,7 +1,7 @@
 {
-  "name": "puppeteer-recorder",
-  "version": "0.7.2",
-  "description": "A Chrome extension for recording browser interaction and generating Puppeteer scripts",
+  "name": "kondo-puppeteer-recorder",
+  "version": "0.1.0",
+  "description": "A modified version of the Chrome extension for recording browser interaction and generating Puppeteer scripts",
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development DEBUG=puppeteer-recorder:* webpack --watch",
@@ -13,9 +13,9 @@
     "e2e-test": "jest __e2e-tests__ --runInBand --silent",
     "lint": "eslint --quiet -f codeframe src"
   },
-  "pre-commit": [
-    "test-prod"
-  ],
+  // "pre-commit": [
+  //   "test-prod"
+  // ],
   "repository": {
     "type": "git",
     "url": "https://github.com/checkly/puppeteer-recorder"
@@ -66,7 +66,7 @@
     "jest": "^23.5.0",
     "jest-vue-preprocessor": "^1.4.0",
     "lodash": "^4.17.11",
-    "node-sass": "^4.9.3",
+    "node-sass": "^4.13.1",
     "pre-commit": "^1.2.2",
     "puppeteer": "^1.7.0",
     "sass-loader": "^7.1.0",
